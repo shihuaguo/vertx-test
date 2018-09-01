@@ -1,7 +1,8 @@
-package com.mindai.vertx.test;
+package com.mindai.vertx;
 
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Future;
+import io.vertx.core.Vertx;
 import io.vertx.core.http.HttpServer;
 
 public class AsyncVerticle extends AbstractVerticle {
@@ -28,5 +29,10 @@ public class AsyncVerticle extends AbstractVerticle {
 		 * obj.doSomethingThatTakesTime(res -> { if (res.succeeded()) {
 		 * stopFuture.complete(); } else { stopFuture.fail(); } });
 		 */
+	}
+	
+	public static void main(String[] args) {
+		Vertx vertx = Vertx.vertx();
+		vertx.deployVerticle(new AsyncVerticle());
 	}
 }

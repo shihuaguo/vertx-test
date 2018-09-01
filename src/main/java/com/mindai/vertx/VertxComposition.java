@@ -1,4 +1,4 @@
-package com.mindai.vertx.test;
+package com.mindai.vertx;
 
 import java.util.Random;
 
