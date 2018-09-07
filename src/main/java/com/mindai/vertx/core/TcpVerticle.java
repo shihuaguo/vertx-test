@@ -1,4 +1,4 @@
-package com.mindai.vertx.tcp;
+package com.mindai.vertx.core;
 
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Future;

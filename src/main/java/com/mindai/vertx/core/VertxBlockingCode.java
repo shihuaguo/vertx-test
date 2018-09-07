@@ -1,4 +1,4 @@
-package com.mindai.vertx;
+package com.mindai.vertx.core;
 
 import io.vertx.core.Vertx;
 
