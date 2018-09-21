@@ -22,23 +22,23 @@ public class HttpClientVerticle extends AbstractVerticle {
 	@Override
 	public void start(Future<Void> startFuture) throws Exception {
 		WebClientOptions options = new WebClientOptions().setUserAgent("My-App/1.2.3");
-		options.setKeepAlive(true);
+		options.setKeepAlive(true).setMaxPoolSize(100).setPipelining(true).setPipeliningLimit(1000);
 		WebClient client = WebClient.create(vertx, options);
 		HttpRequest<Buffer> request = client.post(443, "testbank.mindai.com", "/member/goodsList")
-	//			.addQueryParam("method", "general.getPcProjectList")
-	//			.addQueryParam("appKey", "00000001")
-	//			.addQueryParam("v", "2.5.0")
-	//			.addQueryParam("format", "json")
-	//			.addQueryParam("locale", "cn")
-	//			.addQueryParam("sessionId", "")
-	//			.addQueryParam("timestamp", "2018-09-20 17:00:05")
-	//			.addQueryParam("bizContent", "FmZ6suAyUgKO6XBaZ5pX0w==")
-	//			.addQueryParam("sign", "9953CC22EF162458E994ACDBDCAE04F5576BCF11")
+				//			.addQueryParam("method", "general.getPcProjectList")
+				//			.addQueryParam("appKey", "00000001")
+				//			.addQueryParam("v", "2.5.0")
+				//			.addQueryParam("format", "json")
+				//			.addQueryParam("locale", "cn")
+				//			.addQueryParam("sessionId", "")
+				//			.addQueryParam("timestamp", "2018-09-20 17:00:05")
+				//			.addQueryParam("bizContent", "FmZ6suAyUgKO6XBaZ5pX0w==")
+				//			.addQueryParam("sign", "9953CC22EF162458E994ACDBDCAE04F5576BCF11")
 				.ssl(true);
 		
 		long start = System.currentTimeMillis();
 		long s[] = new long[3];
-		int n = 1000;
+		int n = 100;
 		AtomicLong al = new AtomicLong(0);
 		IntStream.range(0, n).forEach(i -> {
 			long starti = System.currentTimeMillis();
