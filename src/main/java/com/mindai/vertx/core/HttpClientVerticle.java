@@ -22,9 +22,9 @@ public class HttpClientVerticle extends AbstractVerticle {
 	@Override
 	public void start(Future<Void> startFuture) throws Exception {
 		WebClientOptions options = new WebClientOptions().setUserAgent("My-App/1.2.3");
-		options.setKeepAlive(true).setMaxPoolSize(100).setPipelining(true).setPipeliningLimit(1000);
+		options.setKeepAlive(true).setMaxPoolSize(100).setPipelining(true).setPipeliningLimit(1);
 		WebClient client = WebClient.create(vertx, options);
-		HttpRequest<Buffer> request = client.post(443, "testbank.mindai.com", "/member/goodsList")
+		HttpRequest<Buffer> request = client.post(443, "www.mindai.com", "/")
 				//			.addQueryParam("method", "general.getPcProjectList")
 				//			.addQueryParam("appKey", "00000001")
 				//			.addQueryParam("v", "2.5.0")
